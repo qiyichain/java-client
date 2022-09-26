@@ -54,7 +54,16 @@ public class NFT {
     DIRECTORY("directory"),
     
     IMAGE_JPEG("image/jpeg"),
-    
+    IMAGE_PNG("image/png"),
+    IMAGE_GIF("image/gif"),
+    IMAGE_BMP("image/bmp"),
+    VIDEO_MP4("video/mpeg4"),
+    AUDIO_MP3("audio/mp3"),
+    UNKNOW_TYPE("unknow"),
+
+
+
+
     APPLICATION_JSON("application/json"),
     
     OTHER_MIME_TYPES("other mime types");
@@ -80,7 +89,10 @@ public class NFT {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+
+      // 我们不报错
+      return UNKNOW_TYPE;
+//      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 
     public static class Adapter extends TypeAdapter<TypeEnum> {
